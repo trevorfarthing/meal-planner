@@ -1,0 +1,61 @@
+# .github/workflows/weekly-meal-plan.yml
+#
+# Runs every Saturday at 9 AM Pacific, calls the Claude API to pick
+# recipes, commits the updated history, and sends the plan + grocery
+# list to a Telegram chat.
+#
+# Required repository secrets:
+#   ANTHROPIC_API_KEY  – your Anthropic API key
+#   TELEGRAM_BOT_TOKEN – token from @BotFather
+#   TELEGRAM_CHAT_ID   – numeric chat ID for your group/DM
+#
+# Repository structure expected:
+#   recipes/           – exported Recipe Keeper files (HTML, text, JSON, etc.)
+#   meal-plan-history.json – rolling 8-week history (see schema in file)
+
+name: Weekly Meal Plan
+
+on:
+  schedule:
+    # 9:00 AM Pacific = 17:00 UTC (during PDT) or 17:00 UTC (adjust for PST if needed)
+    - cron: "0 17 * * 6" # Every Saturday
+  workflow_dispatch: # Allow manual trigger for testing
+
+permissions:
+  contents: write # Needed to commit updated history file
+
+jobs:
+  plan-meals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate meal plan
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/generate_meal_plan.py
+
+      - name: Send to Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scripts/send_telegram.py
+
+      - name: Commit updated history
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add meal-plan-history.json
+          git diff --cached --quiet || git commit -m "Update meal plan history — $(date +%Y-%m-%d)"
+          git push

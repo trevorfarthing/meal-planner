@@ -1,0 +1,148 @@
+{
+  "_schema": {
+    "description": "Weekly meal plan history tracker. This file lives in Google Drive inside the 'Recipes' folder. Claude reads it at the start of each weekly run to avoid repeating recent recipes, appends the new week's plan, and uploads the updated file back to Drive. Keep a rolling window of the last 8 weeks.",
+    "location": "Google Drive → Recipes → meal-plan-history.json",
+    "fields": {
+      "weekStart": "ISO date string (YYYY-MM-DD) for the Monday of the planned week",
+      "createdAt": "ISO datetime string for when this entry was generated",
+      "recipes": "Array of 4–5 recipe objects selected for this week",
+      "recipes[].name": "Exact recipe name as it appears in the Recipe Keeper export",
+      "recipes[].assignedDay": "Day of the week this recipe is planned for (Monday, Tuesday, etc.)",
+      "recipes[].primaryProtein": "Main protein in the dish (chicken, beef, pork, shrimp, salmon, tofu, none, etc.)",
+      "recipes[].cuisineStyle": "General cuisine category (Italian, Mexican, Asian, American, Mediterranean, etc.)",
+      "recipes[].ingredients": "Array of ingredient strings as they appear in the recipe",
+      "groceryList": "Array of consolidated grocery items after removing pantry staples and combining duplicates",
+      "groceryList[].item": "Ingredient name",
+      "groceryList[].quantity": "Amount needed (e.g., '2 lbs', '1 bunch', '8 oz')",
+      "groceryList[].forRecipes": "Array of recipe names this ingredient is used in",
+      "notes": "Optional string for any notes about this week (substitutions made, items out of stock, etc.)"
+    }
+  },
+  "weeks": [
+    {
+      "weekStart": "2026-03-09",
+      "createdAt": "2026-03-07T09:00:00Z",
+      "recipes": [
+        {
+          "name": "Chicken Alfredo Pasta",
+          "assignedDay": "Monday",
+          "primaryProtein": "chicken",
+          "cuisineStyle": "Italian",
+          "ingredients": [
+            "1 lb fettuccine",
+            "2 chicken breasts",
+            "1 cup heavy cream",
+            "1 cup parmesan cheese, grated",
+            "3 cloves garlic, minced",
+            "2 tbsp butter",
+            "Salt and pepper to taste",
+            "Fresh parsley for garnish"
+          ]
+        },
+        {
+          "name": "Chicken Tortilla Soup",
+          "assignedDay": "Tuesday",
+          "primaryProtein": "chicken",
+          "cuisineStyle": "Mexican",
+          "ingredients": [
+            "2 chicken breasts",
+            "1 can black beans, drained",
+            "1 can diced tomatoes",
+            "1 can corn, drained",
+            "1 onion, diced",
+            "2 cloves garlic, minced",
+            "4 cups chicken broth",
+            "1 tsp cumin",
+            "1 tsp chili powder",
+            "Tortilla chips",
+            "Sour cream",
+            "Shredded cheddar cheese",
+            "1 lime",
+            "Fresh cilantro"
+          ]
+        },
+        {
+          "name": "Beef Tacos",
+          "assignedDay": "Wednesday",
+          "primaryProtein": "beef",
+          "cuisineStyle": "Mexican",
+          "ingredients": [
+            "1 lb ground beef",
+            "1 packet taco seasoning",
+            "8 small flour tortillas",
+            "1 cup shredded lettuce",
+            "1 tomato, diced",
+            "Shredded cheddar cheese",
+            "Sour cream",
+            "Hot sauce"
+          ]
+        },
+        {
+          "name": "Smash Burgers",
+          "assignedDay": "Thursday",
+          "primaryProtein": "beef",
+          "cuisineStyle": "American",
+          "ingredients": [
+            "1 lb ground beef",
+            "4 brioche buns",
+            "4 slices American cheese",
+            "Pickles",
+            "1 tomato, sliced",
+            "Lettuce leaves",
+            "Ketchup",
+            "Mustard"
+          ]
+        },
+        {
+          "name": "Shrimp Stir Fry",
+          "assignedDay": "Friday",
+          "primaryProtein": "shrimp",
+          "cuisineStyle": "Asian",
+          "ingredients": [
+            "1 lb shrimp, peeled and deveined",
+            "2 cups broccoli florets",
+            "1 red bell pepper, sliced",
+            "2 cloves garlic, minced",
+            "1 tbsp fresh ginger, minced",
+            "3 tbsp soy sauce",
+            "1 tbsp sesame oil",
+            "1 tbsp honey",
+            "Cooked rice for serving"
+          ]
+        }
+      ],
+      "groceryList": [
+        { "item": "Chicken breasts", "quantity": "4 breasts (~2 lbs)", "forRecipes": ["Chicken Alfredo Pasta", "Chicken Tortilla Soup"] },
+        { "item": "Ground beef", "quantity": "2 lbs", "forRecipes": ["Beef Tacos", "Smash Burgers"] },
+        { "item": "Shrimp (peeled, deveined)", "quantity": "1 lb", "forRecipes": ["Shrimp Stir Fry"] },
+        { "item": "Heavy cream", "quantity": "1 cup (half pint)", "forRecipes": ["Chicken Alfredo Pasta"] },
+        { "item": "Parmesan cheese", "quantity": "1 cup grated (~4 oz)", "forRecipes": ["Chicken Alfredo Pasta"] },
+        { "item": "Shredded cheddar cheese", "quantity": "8 oz bag", "forRecipes": ["Chicken Tortilla Soup", "Beef Tacos"] },
+        { "item": "American cheese slices", "quantity": "4 slices", "forRecipes": ["Smash Burgers"] },
+        { "item": "Sour cream", "quantity": "8 oz container", "forRecipes": ["Chicken Tortilla Soup", "Beef Tacos"] },
+        { "item": "Fettuccine", "quantity": "1 lb box", "forRecipes": ["Chicken Alfredo Pasta"] },
+        { "item": "Flour tortillas (small)", "quantity": "1 pack (8 ct)", "forRecipes": ["Beef Tacos"] },
+        { "item": "Brioche buns", "quantity": "4 pack", "forRecipes": ["Smash Burgers"] },
+        { "item": "Tortilla chips", "quantity": "1 bag", "forRecipes": ["Chicken Tortilla Soup"] },
+        { "item": "Black beans (canned)", "quantity": "1 can", "forRecipes": ["Chicken Tortilla Soup"] },
+        { "item": "Diced tomatoes (canned)", "quantity": "1 can", "forRecipes": ["Chicken Tortilla Soup"] },
+        { "item": "Corn (canned)", "quantity": "1 can", "forRecipes": ["Chicken Tortilla Soup"] },
+        { "item": "Chicken broth", "quantity": "1 carton (32 oz)", "forRecipes": ["Chicken Tortilla Soup"] },
+        { "item": "Taco seasoning", "quantity": "1 packet", "forRecipes": ["Beef Tacos"] },
+        { "item": "Onion", "quantity": "1 large", "forRecipes": ["Chicken Tortilla Soup"] },
+        { "item": "Tomatoes", "quantity": "2 medium", "forRecipes": ["Beef Tacos", "Smash Burgers"] },
+        { "item": "Lettuce (romaine or iceberg)", "quantity": "1 head", "forRecipes": ["Beef Tacos", "Smash Burgers"] },
+        { "item": "Limes", "quantity": "2", "forRecipes": ["Chicken Tortilla Soup"] },
+        { "item": "Fresh cilantro", "quantity": "1 bunch", "forRecipes": ["Chicken Tortilla Soup"] },
+        { "item": "Fresh parsley", "quantity": "1 bunch", "forRecipes": ["Chicken Alfredo Pasta"] },
+        { "item": "Broccoli", "quantity": "1 crown", "forRecipes": ["Shrimp Stir Fry"] },
+        { "item": "Red bell pepper", "quantity": "1", "forRecipes": ["Shrimp Stir Fry"] },
+        { "item": "Fresh ginger", "quantity": "1 small knob", "forRecipes": ["Shrimp Stir Fry"] },
+        { "item": "Sesame oil", "quantity": "1 small bottle", "forRecipes": ["Shrimp Stir Fry"] },
+        { "item": "Honey", "quantity": "1 bottle (if not stocked)", "forRecipes": ["Shrimp Stir Fry"] },
+        { "item": "Pickles", "quantity": "1 jar", "forRecipes": ["Smash Burgers"] }
+      ],
+      "notes": "Example entry — replace with actual first week's selections. Chicken breasts shared across two recipes. Cheddar and sour cream shared across Tortilla Soup and Tacos. Lettuce and tomato shared across Tacos and Burgers."
+    }
+  ]
+}
