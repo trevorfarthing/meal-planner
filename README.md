@@ -1,4 +1,4 @@
-# Weekly Meal Planner — GitHub Action + Telegram
+# Weekly Meal Planner — GitHub Action + Claude + Telegram
 
 Automatically picks 4–5 dinner recipes every Saturday, builds a grocery list,
 and sends both to a Telegram chat.
