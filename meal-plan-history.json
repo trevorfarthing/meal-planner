@@ -1,11 +1,11 @@
 {
   "_schema": {
     "description": "Weekly meal plan history tracker. This file lives in Google Drive inside the 'Recipes' folder. Claude reads it at the start of each weekly run to avoid repeating recent recipes, appends the new week's plan, and uploads the updated file back to Drive. Keep a rolling window of the last 8 weeks.",
-    "location": "Google Drive → Recipes → meal-plan-history.json",
+    "location": "Google Drive \u2192 Recipes \u2192 meal-plan-history.json",
     "fields": {
       "weekStart": "ISO date string (YYYY-MM-DD) for the Monday of the planned week",
       "createdAt": "ISO datetime string for when this entry was generated",
-      "recipes": "Array of 4–5 recipe objects selected for this week",
+      "recipes": "Array of 4\u20135 recipe objects selected for this week",
       "recipes[].name": "Exact recipe name as it appears in the Recipe Keeper export",
       "recipes[].assignedDay": "Day of the week this recipe is planned for (Monday, Tuesday, etc.)",
       "recipes[].primaryProtein": "Main protein in the dish (chicken, beef, pork, shrimp, salmon, tofu, none, etc.)",
@@ -112,37 +112,542 @@
         }
       ],
       "groceryList": [
-        { "item": "Chicken breasts", "quantity": "4 breasts (~2 lbs)", "forRecipes": ["Chicken Alfredo Pasta", "Chicken Tortilla Soup"] },
-        { "item": "Ground beef", "quantity": "2 lbs", "forRecipes": ["Beef Tacos", "Smash Burgers"] },
-        { "item": "Shrimp (peeled, deveined)", "quantity": "1 lb", "forRecipes": ["Shrimp Stir Fry"] },
-        { "item": "Heavy cream", "quantity": "1 cup (half pint)", "forRecipes": ["Chicken Alfredo Pasta"] },
-        { "item": "Parmesan cheese", "quantity": "1 cup grated (~4 oz)", "forRecipes": ["Chicken Alfredo Pasta"] },
-        { "item": "Shredded cheddar cheese", "quantity": "8 oz bag", "forRecipes": ["Chicken Tortilla Soup", "Beef Tacos"] },
-        { "item": "American cheese slices", "quantity": "4 slices", "forRecipes": ["Smash Burgers"] },
-        { "item": "Sour cream", "quantity": "8 oz container", "forRecipes": ["Chicken Tortilla Soup", "Beef Tacos"] },
-        { "item": "Fettuccine", "quantity": "1 lb box", "forRecipes": ["Chicken Alfredo Pasta"] },
-        { "item": "Flour tortillas (small)", "quantity": "1 pack (8 ct)", "forRecipes": ["Beef Tacos"] },
-        { "item": "Brioche buns", "quantity": "4 pack", "forRecipes": ["Smash Burgers"] },
-        { "item": "Tortilla chips", "quantity": "1 bag", "forRecipes": ["Chicken Tortilla Soup"] },
-        { "item": "Black beans (canned)", "quantity": "1 can", "forRecipes": ["Chicken Tortilla Soup"] },
-        { "item": "Diced tomatoes (canned)", "quantity": "1 can", "forRecipes": ["Chicken Tortilla Soup"] },
-        { "item": "Corn (canned)", "quantity": "1 can", "forRecipes": ["Chicken Tortilla Soup"] },
-        { "item": "Chicken broth", "quantity": "1 carton (32 oz)", "forRecipes": ["Chicken Tortilla Soup"] },
-        { "item": "Taco seasoning", "quantity": "1 packet", "forRecipes": ["Beef Tacos"] },
-        { "item": "Onion", "quantity": "1 large", "forRecipes": ["Chicken Tortilla Soup"] },
-        { "item": "Tomatoes", "quantity": "2 medium", "forRecipes": ["Beef Tacos", "Smash Burgers"] },
-        { "item": "Lettuce (romaine or iceberg)", "quantity": "1 head", "forRecipes": ["Beef Tacos", "Smash Burgers"] },
-        { "item": "Limes", "quantity": "2", "forRecipes": ["Chicken Tortilla Soup"] },
-        { "item": "Fresh cilantro", "quantity": "1 bunch", "forRecipes": ["Chicken Tortilla Soup"] },
-        { "item": "Fresh parsley", "quantity": "1 bunch", "forRecipes": ["Chicken Alfredo Pasta"] },
-        { "item": "Broccoli", "quantity": "1 crown", "forRecipes": ["Shrimp Stir Fry"] },
-        { "item": "Red bell pepper", "quantity": "1", "forRecipes": ["Shrimp Stir Fry"] },
-        { "item": "Fresh ginger", "quantity": "1 small knob", "forRecipes": ["Shrimp Stir Fry"] },
-        { "item": "Sesame oil", "quantity": "1 small bottle", "forRecipes": ["Shrimp Stir Fry"] },
-        { "item": "Honey", "quantity": "1 bottle (if not stocked)", "forRecipes": ["Shrimp Stir Fry"] },
-        { "item": "Pickles", "quantity": "1 jar", "forRecipes": ["Smash Burgers"] }
+        {
+          "item": "Chicken breasts",
+          "quantity": "4 breasts (~2 lbs)",
+          "forRecipes": [
+            "Chicken Alfredo Pasta",
+            "Chicken Tortilla Soup"
+          ]
+        },
+        {
+          "item": "Ground beef",
+          "quantity": "2 lbs",
+          "forRecipes": [
+            "Beef Tacos",
+            "Smash Burgers"
+          ]
+        },
+        {
+          "item": "Shrimp (peeled, deveined)",
+          "quantity": "1 lb",
+          "forRecipes": [
+            "Shrimp Stir Fry"
+          ]
+        },
+        {
+          "item": "Heavy cream",
+          "quantity": "1 cup (half pint)",
+          "forRecipes": [
+            "Chicken Alfredo Pasta"
+          ]
+        },
+        {
+          "item": "Parmesan cheese",
+          "quantity": "1 cup grated (~4 oz)",
+          "forRecipes": [
+            "Chicken Alfredo Pasta"
+          ]
+        },
+        {
+          "item": "Shredded cheddar cheese",
+          "quantity": "8 oz bag",
+          "forRecipes": [
+            "Chicken Tortilla Soup",
+            "Beef Tacos"
+          ]
+        },
+        {
+          "item": "American cheese slices",
+          "quantity": "4 slices",
+          "forRecipes": [
+            "Smash Burgers"
+          ]
+        },
+        {
+          "item": "Sour cream",
+          "quantity": "8 oz container",
+          "forRecipes": [
+            "Chicken Tortilla Soup",
+            "Beef Tacos"
+          ]
+        },
+        {
+          "item": "Fettuccine",
+          "quantity": "1 lb box",
+          "forRecipes": [
+            "Chicken Alfredo Pasta"
+          ]
+        },
+        {
+          "item": "Flour tortillas (small)",
+          "quantity": "1 pack (8 ct)",
+          "forRecipes": [
+            "Beef Tacos"
+          ]
+        },
+        {
+          "item": "Brioche buns",
+          "quantity": "4 pack",
+          "forRecipes": [
+            "Smash Burgers"
+          ]
+        },
+        {
+          "item": "Tortilla chips",
+          "quantity": "1 bag",
+          "forRecipes": [
+            "Chicken Tortilla Soup"
+          ]
+        },
+        {
+          "item": "Black beans (canned)",
+          "quantity": "1 can",
+          "forRecipes": [
+            "Chicken Tortilla Soup"
+          ]
+        },
+        {
+          "item": "Diced tomatoes (canned)",
+          "quantity": "1 can",
+          "forRecipes": [
+            "Chicken Tortilla Soup"
+          ]
+        },
+        {
+          "item": "Corn (canned)",
+          "quantity": "1 can",
+          "forRecipes": [
+            "Chicken Tortilla Soup"
+          ]
+        },
+        {
+          "item": "Chicken broth",
+          "quantity": "1 carton (32 oz)",
+          "forRecipes": [
+            "Chicken Tortilla Soup"
+          ]
+        },
+        {
+          "item": "Taco seasoning",
+          "quantity": "1 packet",
+          "forRecipes": [
+            "Beef Tacos"
+          ]
+        },
+        {
+          "item": "Onion",
+          "quantity": "1 large",
+          "forRecipes": [
+            "Chicken Tortilla Soup"
+          ]
+        },
+        {
+          "item": "Tomatoes",
+          "quantity": "2 medium",
+          "forRecipes": [
+            "Beef Tacos",
+            "Smash Burgers"
+          ]
+        },
+        {
+          "item": "Lettuce (romaine or iceberg)",
+          "quantity": "1 head",
+          "forRecipes": [
+            "Beef Tacos",
+            "Smash Burgers"
+          ]
+        },
+        {
+          "item": "Limes",
+          "quantity": "2",
+          "forRecipes": [
+            "Chicken Tortilla Soup"
+          ]
+        },
+        {
+          "item": "Fresh cilantro",
+          "quantity": "1 bunch",
+          "forRecipes": [
+            "Chicken Tortilla Soup"
+          ]
+        },
+        {
+          "item": "Fresh parsley",
+          "quantity": "1 bunch",
+          "forRecipes": [
+            "Chicken Alfredo Pasta"
+          ]
+        },
+        {
+          "item": "Broccoli",
+          "quantity": "1 crown",
+          "forRecipes": [
+            "Shrimp Stir Fry"
+          ]
+        },
+        {
+          "item": "Red bell pepper",
+          "quantity": "1",
+          "forRecipes": [
+            "Shrimp Stir Fry"
+          ]
+        },
+        {
+          "item": "Fresh ginger",
+          "quantity": "1 small knob",
+          "forRecipes": [
+            "Shrimp Stir Fry"
+          ]
+        },
+        {
+          "item": "Sesame oil",
+          "quantity": "1 small bottle",
+          "forRecipes": [
+            "Shrimp Stir Fry"
+          ]
+        },
+        {
+          "item": "Honey",
+          "quantity": "1 bottle (if not stocked)",
+          "forRecipes": [
+            "Shrimp Stir Fry"
+          ]
+        },
+        {
+          "item": "Pickles",
+          "quantity": "1 jar",
+          "forRecipes": [
+            "Smash Burgers"
+          ]
+        }
       ],
-      "notes": "Example entry — replace with actual first week's selections. Chicken breasts shared across two recipes. Cheddar and sour cream shared across Tortilla Soup and Tacos. Lettuce and tomato shared across Tacos and Burgers."
+      "notes": "Example entry \u2014 replace with actual first week's selections. Chicken breasts shared across two recipes. Cheddar and sour cream shared across Tortilla Soup and Tacos. Lettuce and tomato shared across Tacos and Burgers."
+    },
+    {
+      "weekStart": "2026-03-09",
+      "createdAt": "2026-03-08T10:00:00Z",
+      "recipes": [
+        {
+          "name": "Air Fryer Pork Chops",
+          "assignedDay": "Monday",
+          "primaryProtein": "pork",
+          "cuisineStyle": "American",
+          "ingredients": [
+            "4 (1\"-thick) boneless pork chops",
+            "2 tbsp. extra-virgin olive oil",
+            "1 oz. Parmesan, finely grated (about 1/2 cup)",
+            "1 tsp. garlic powder",
+            "1 tsp. kosher salt",
+            "1 tsp. onion powder",
+            "1 tsp. smoked paprika",
+            "1/2 tsp. freshly ground black pepper"
+          ]
+        },
+        {
+          "name": "Creamy Lemon Chicken Orzo",
+          "assignedDay": "Tuesday",
+          "primaryProtein": "chicken",
+          "cuisineStyle": "Italian",
+          "ingredients": [
+            "2-3 tbsp butter",
+            "Olive oil",
+            "Salt and pepper, to taste",
+            "1 tsp red pepper, to taste",
+            "1 tsp Italian seasoning, to taste",
+            "2 chicken breasts (seasoned with salt, pepper, smoked paprika, onion powder, garlic powder)",
+            "1 shallot, minced",
+            "3 cloves garlic, grated (to taste)",
+            "1/4 cup dry white wine (optional)",
+            "1 cup orzo",
+            "2 cups chicken broth",
+            "1/2 cup heavy cream",
+            "1\u20132 tbsp lemon juice, to taste",
+            "1 tbsp lemon zest, to taste",
+            "Grated parmesan, to taste (I used about 1/2 cup)",
+            "Parsley, to garnish"
+          ]
+        },
+        {
+          "name": "Ground Beef Orzo with Spinach",
+          "assignedDay": "Wednesday",
+          "primaryProtein": "beef",
+          "cuisineStyle": "Italian",
+          "ingredients": [
+            "1 lb ground beef",
+            "1 cup orzo",
+            "2 cups beef broth",
+            "1 cup heavy cream",
+            "2 tbsp tomato paste",
+            "2 handfuls of baby spinach",
+            "1/2 cup fresh grated Parmesan",
+            "salt",
+            "pepper",
+            "garlic powder",
+            "onion powder",
+            "paprika"
+          ]
+        },
+        {
+          "name": "Sheet Pan Greek Chicken",
+          "assignedDay": "Thursday",
+          "primaryProtein": "chicken",
+          "cuisineStyle": "Mediterranean",
+          "ingredients": [
+            "1.5 lb bag baby potatoes",
+            "1/2 tbsp olive oil",
+            "Salt + pepper",
+            "1.5 lb boneless, skinless chicken breast",
+            "1/2 cup plain greek yogurt",
+            "Zest and juice of 1/2 a lemon",
+            "1/2 tbsp minced garlic",
+            "1/2 tsp onion powder",
+            "1/2 tsp cumin",
+            "1 tsp paprika",
+            "1 tsp dried or fresh parsley",
+            "1/2 tsp dried oregano",
+            "1 tsp salt",
+            "1/2 tsp pepper",
+            "1 red onion, sliced",
+            "1/2 of lemon, sliced",
+            "Olive oil spray",
+            "2 oz crumbled feta cheese and diced parsley for topping"
+          ]
+        },
+        {
+          "name": "Pork Fried Rice",
+          "assignedDay": "Friday",
+          "primaryProtein": "pork",
+          "cuisineStyle": "Asian",
+          "ingredients": [
+            "3 cups cooked rice, fresh or frozen",
+            "10 ounces lean pork loin, diced into 1/2-inch cubes",
+            "1/4 teaspoon salt",
+            "1/4 teaspoon black pepper",
+            "1/4 cup vegetable oil, divided",
+            "1/2 white onion, chopped",
+            "2 cloves garlic, minced",
+            "2 inches fresh ginger, minced or grated",
+            "1 cup frozen carrots and peas",
+            "3 large eggs, scrambled",
+            "1 tablespoon soy sauce",
+            "2 tablespoons toasted sesame oil",
+            "1 teaspoon chili oil",
+            "1/4 teaspoon red pepper flakes",
+            "Pinch of sesame seeds"
+          ]
+        }
+      ],
+      "groceryList": [
+        {
+          "item": "Pork chops (boneless, 1\"-thick)",
+          "quantity": "4 chops (~1.5 lbs)",
+          "forRecipes": [
+            "Air Fryer Pork Chops"
+          ]
+        },
+        {
+          "item": "Chicken breasts (boneless, skinless)",
+          "quantity": "4 breasts (~2 lbs)",
+          "forRecipes": [
+            "Creamy Lemon Chicken Orzo",
+            "Sheet Pan Greek Chicken"
+          ]
+        },
+        {
+          "item": "Ground beef",
+          "quantity": "1 lb",
+          "forRecipes": [
+            "Ground Beef Orzo with Spinach"
+          ]
+        },
+        {
+          "item": "Pork loin (lean)",
+          "quantity": "10 oz",
+          "forRecipes": [
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Parmesan cheese (grated)",
+          "quantity": "1.5 cups total",
+          "forRecipes": [
+            "Air Fryer Pork Chops",
+            "Creamy Lemon Chicken Orzo",
+            "Ground Beef Orzo with Spinach"
+          ]
+        },
+        {
+          "item": "Feta cheese",
+          "quantity": "2 oz",
+          "forRecipes": [
+            "Sheet Pan Greek Chicken"
+          ]
+        },
+        {
+          "item": "Heavy cream",
+          "quantity": "2 cups",
+          "forRecipes": [
+            "Creamy Lemon Chicken Orzo",
+            "Ground Beef Orzo with Spinach"
+          ]
+        },
+        {
+          "item": "Greek yogurt",
+          "quantity": "1/2 cup",
+          "forRecipes": [
+            "Sheet Pan Greek Chicken"
+          ]
+        },
+        {
+          "item": "Orzo pasta",
+          "quantity": "2 cups dry",
+          "forRecipes": [
+            "Creamy Lemon Chicken Orzo",
+            "Ground Beef Orzo with Spinach"
+          ]
+        },
+        {
+          "item": "Rice (cooked)",
+          "quantity": "3 cups",
+          "forRecipes": [
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Baby potatoes",
+          "quantity": "1.5 lbs",
+          "forRecipes": [
+            "Sheet Pan Greek Chicken"
+          ]
+        },
+        {
+          "item": "Baby spinach",
+          "quantity": "2 handfuls",
+          "forRecipes": [
+            "Ground Beef Orzo with Spinach"
+          ]
+        },
+        {
+          "item": "Shallots",
+          "quantity": "1",
+          "forRecipes": [
+            "Creamy Lemon Chicken Orzo"
+          ]
+        },
+        {
+          "item": "Garlic",
+          "quantity": "1 bulb (~8 cloves)",
+          "forRecipes": [
+            "Creamy Lemon Chicken Orzo",
+            "Sheet Pan Greek Chicken",
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Ginger (fresh)",
+          "quantity": "2-inch piece",
+          "forRecipes": [
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Red onion",
+          "quantity": "1",
+          "forRecipes": [
+            "Pork Fried Rice",
+            "Sheet Pan Greek Chicken"
+          ]
+        },
+        {
+          "item": "White onion",
+          "quantity": "1",
+          "forRecipes": [
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Lemon",
+          "quantity": "2",
+          "forRecipes": [
+            "Creamy Lemon Chicken Orzo",
+            "Sheet Pan Greek Chicken"
+          ]
+        },
+        {
+          "item": "Tomato paste",
+          "quantity": "2 tbsp",
+          "forRecipes": [
+            "Ground Beef Orzo with Spinach"
+          ]
+        },
+        {
+          "item": "Chicken broth",
+          "quantity": "2 cups",
+          "forRecipes": [
+            "Creamy Lemon Chicken Orzo",
+            "Ground Beef Orzo with Spinach"
+          ]
+        },
+        {
+          "item": "Beef broth",
+          "quantity": "2 cups",
+          "forRecipes": [
+            "Ground Beef Orzo with Spinach"
+          ]
+        },
+        {
+          "item": "White wine (dry)",
+          "quantity": "1/4 cup",
+          "forRecipes": [
+            "Creamy Lemon Chicken Orzo"
+          ]
+        },
+        {
+          "item": "Sesame oil",
+          "quantity": "2 tbsp",
+          "forRecipes": [
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Chili oil",
+          "quantity": "1 tsp",
+          "forRecipes": [
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Eggs",
+          "quantity": "3 large",
+          "forRecipes": [
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Frozen carrots and peas",
+          "quantity": "1 cup",
+          "forRecipes": [
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Parsley (fresh)",
+          "quantity": "1 bunch",
+          "forRecipes": [
+            "Creamy Lemon Chicken Orzo",
+            "Sheet Pan Greek Chicken"
+          ]
+        },
+        {
+          "item": "Sesame seeds",
+          "quantity": "1 tbsp",
+          "forRecipes": [
+            "Pork Fried Rice"
+          ]
+        }
+      ],
+      "notes": "Strong ingredient overlap across chicken and pork dishes. All recipes use pantry staples (salt, pepper, garlic powder, onion powder, paprika, cumin, Italian seasoning, soy sauce). Orzo is a key shared ingredient between Tuesday and Wednesday meals. Parmesan cheese consolidates across 3 recipes. Lemon and garlic appear in multiple recipes. All recipes are under 45 minutes active cooking time. Two different proteins (chicken, beef, pork) plus variety in cuisines (Italian, Mediterranean, American, Asian). Weekend left open for eating out."
     }
   ]
 }
