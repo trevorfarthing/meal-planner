@@ -648,6 +648,419 @@
         }
       ],
       "notes": "Strong ingredient overlap across chicken and pork dishes. All recipes use pantry staples (salt, pepper, garlic powder, onion powder, paprika, cumin, Italian seasoning, soy sauce). Orzo is a key shared ingredient between Tuesday and Wednesday meals. Parmesan cheese consolidates across 3 recipes. Lemon and garlic appear in multiple recipes. All recipes are under 45 minutes active cooking time. Two different proteins (chicken, beef, pork) plus variety in cuisines (Italian, Mediterranean, American, Asian). Weekend left open for eating out."
+    },
+    {
+      "weekStart": "2026-03-16",
+      "createdAt": "2026-03-14T10:00:00Z",
+      "recipes": [
+        {
+          "name": "Easy Beef Bulgogi",
+          "assignedDay": "Monday",
+          "primaryProtein": "beef",
+          "cuisineStyle": "Asian",
+          "ingredients": [
+            "1/4 cup soy sauce",
+            "1/2 Asian pear, peeled and grated",
+            "2 tablespoons mirin",
+            "2 tablespoons sugar",
+            "3 large cloves garlic, minced",
+            "2 tablespoons toasted sesame oil",
+            "1/4 teaspoon freshly ground black pepper",
+            "1 1/2 pounds ribeye, sliced 1/8 inch thick",
+            "1 tablespoon canola oil",
+            "1/2 cup chopped green onions",
+            "2 tablespoons toasted sesame seeds",
+            "Cooked rice, to serve"
+          ]
+        },
+        {
+          "name": "Chicken Pad Thai",
+          "assignedDay": "Tuesday",
+          "primaryProtein": "chicken",
+          "cuisineStyle": "Asian",
+          "ingredients": [
+            "14 oz pad Thai rice noodles",
+            "1 tablespoon neutral oil",
+            "1 pound boneless, skinless chicken breast or thighs, cut into 1 to 2-inch pieces",
+            "1 red bell pepper, sliced thinly",
+            "2 medium carrots, peeled and sliced thinly",
+            "1 bunch green onions, thinly sliced",
+            "2 large eggs, lightly whisked",
+            "2 cups bean sprouts",
+            "1/2 cup cilantro, chopped",
+            "1/4 cup chopped salted peanuts",
+            "Lime wedges for serving",
+            "2 garlic cloves, minced or grated",
+            "1/4 cup gluten-free soy sauce",
+            "2 tablespoons fish sauce",
+            "1 lime, juiced",
+            "2 tablespoons coconut sugar or honey",
+            "1 tablespoon sriracha",
+            "1 tablespoon rice vinegar",
+            "2 teaspoons toasted sesame oil"
+          ]
+        },
+        {
+          "name": "Pork Fried Rice",
+          "assignedDay": "Wednesday",
+          "primaryProtein": "pork",
+          "cuisineStyle": "Asian",
+          "ingredients": [
+            "3 cups cooked rice, fresh or frozen",
+            "10 ounces lean pork loin, diced into 1/2-inch cubes",
+            "1/4 teaspoon salt",
+            "1/4 teaspoon black pepper",
+            "1/4 cup vegetable oil, divided",
+            "1/2 white onion, chopped",
+            "2 cloves garlic, minced",
+            "2 inches fresh ginger, minced or grated",
+            "1 cup frozen carrots and peas",
+            "3 large eggs, scrambled",
+            "1 tablespoon soy sauce",
+            "2 tablespoons toasted sesame oil",
+            "1 teaspoon chili oil",
+            "1/4 teaspoon red pepper flakes",
+            "Pinch of sesame seeds"
+          ]
+        },
+        {
+          "name": "Chardonnay Chicken",
+          "assignedDay": "Thursday",
+          "primaryProtein": "chicken",
+          "cuisineStyle": "Italian",
+          "ingredients": [
+            "2 chicken breasts sliced in half horizontally",
+            "1/2 bottle of Chardonnay",
+            "1.5 cups chicken stock",
+            "1 shallot minced",
+            "3 cloves garlic minced",
+            "2 tbsp olive oil",
+            "2 tbsp butter",
+            "Juice from 1/4 lemon",
+            "1 tsp dijon mustard",
+            "1/3 cup heavy cream",
+            "Chives or italian parsley to garnish"
+          ]
+        },
+        {
+          "name": "Steak Tacos with Pineapple Salsa",
+          "assignedDay": "Friday",
+          "primaryProtein": "beef",
+          "cuisineStyle": "Mexican",
+          "ingredients": [
+            "3 tablespoon sour cream",
+            "1 red onion",
+            "10 ounce ranch steak",
+            "5 teaspoon red wine vinegar",
+            "1 jalape\u00f1o",
+            "1 tomato",
+            "6 flour tortillas",
+            "1 tablespoon Mexican spice blend",
+            "4 ounce pineapple",
+            "Salt",
+            "Black pepper",
+            "1 teaspoon cooking oil"
+          ]
+        }
+      ],
+      "groceryList": [
+        {
+          "item": "Ribeye steak",
+          "quantity": "1.5 lbs",
+          "forRecipes": [
+            "Easy Beef Bulgogi"
+          ]
+        },
+        {
+          "item": "Chicken breast",
+          "quantity": "2.5 lbs",
+          "forRecipes": [
+            "Chicken Pad Thai",
+            "Chardonnay Chicken"
+          ]
+        },
+        {
+          "item": "Pork loin",
+          "quantity": "10 oz",
+          "forRecipes": [
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Ranch steak",
+          "quantity": "10 oz",
+          "forRecipes": [
+            "Steak Tacos with Pineapple Salsa"
+          ]
+        },
+        {
+          "item": "Pad Thai rice noodles",
+          "quantity": "14 oz",
+          "forRecipes": [
+            "Chicken Pad Thai"
+          ]
+        },
+        {
+          "item": "Asian pear",
+          "quantity": "1",
+          "forRecipes": [
+            "Easy Beef Bulgogi"
+          ]
+        },
+        {
+          "item": "Rice (cooked)",
+          "quantity": "3 cups",
+          "forRecipes": [
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Cooked rice for serving",
+          "quantity": "2 cups",
+          "forRecipes": [
+            "Easy Beef Bulgogi"
+          ]
+        },
+        {
+          "item": "Fish sauce",
+          "quantity": "2 tbsp",
+          "forRecipes": [
+            "Chicken Pad Thai"
+          ]
+        },
+        {
+          "item": "Sesame oil (toasted)",
+          "quantity": "3 tbsp",
+          "forRecipes": [
+            "Easy Beef Bulgogi",
+            "Chicken Pad Thai",
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Chili oil",
+          "quantity": "1 tsp",
+          "forRecipes": [
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Sriracha",
+          "quantity": "1 tbsp",
+          "forRecipes": [
+            "Chicken Pad Thai"
+          ]
+        },
+        {
+          "item": "Red bell pepper",
+          "quantity": "1",
+          "forRecipes": [
+            "Chicken Pad Thai"
+          ]
+        },
+        {
+          "item": "Carrots",
+          "quantity": "2 lbs",
+          "forRecipes": [
+            "Chicken Pad Thai",
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Green onions",
+          "quantity": "2 bunches",
+          "forRecipes": [
+            "Easy Beef Bulgogi",
+            "Chicken Pad Thai"
+          ]
+        },
+        {
+          "item": "Fresh ginger",
+          "quantity": "2-inch piece",
+          "forRecipes": [
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Bean sprouts",
+          "quantity": "2 cups",
+          "forRecipes": [
+            "Chicken Pad Thai"
+          ]
+        },
+        {
+          "item": "Fresh cilantro",
+          "quantity": "1 bunch",
+          "forRecipes": [
+            "Chicken Pad Thai"
+          ]
+        },
+        {
+          "item": "Salted peanuts",
+          "quantity": "1/4 cup",
+          "forRecipes": [
+            "Chicken Pad Thai"
+          ]
+        },
+        {
+          "item": "Limes",
+          "quantity": "3",
+          "forRecipes": [
+            "Chicken Pad Thai",
+            "Steak Tacos with Pineapple Salsa"
+          ]
+        },
+        {
+          "item": "Eggs",
+          "quantity": "5 large",
+          "forRecipes": [
+            "Chicken Pad Thai",
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Frozen peas and carrots mix",
+          "quantity": "1 cup",
+          "forRecipes": [
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Sesame seeds",
+          "quantity": "3 tbsp",
+          "forRecipes": [
+            "Easy Beef Bulgogi",
+            "Pork Fried Rice"
+          ]
+        },
+        {
+          "item": "Chardonnay wine",
+          "quantity": "1 bottle (750 ml)",
+          "forRecipes": [
+            "Chardonnay Chicken"
+          ]
+        },
+        {
+          "item": "Chicken broth",
+          "quantity": "1.5 cups",
+          "forRecipes": [
+            "Chardonnay Chicken"
+          ]
+        },
+        {
+          "item": "Shallots",
+          "quantity": "2",
+          "forRecipes": [
+            "Chardonnay Chicken"
+          ]
+        },
+        {
+          "item": "Heavy cream",
+          "quantity": "1/3 cup",
+          "forRecipes": [
+            "Chardonnay Chicken"
+          ]
+        },
+        {
+          "item": "Dijon mustard",
+          "quantity": "1 tsp",
+          "forRecipes": [
+            "Chardonnay Chicken"
+          ]
+        },
+        {
+          "item": "Lemon",
+          "quantity": "1",
+          "forRecipes": [
+            "Chardonnay Chicken"
+          ]
+        },
+        {
+          "item": "Chives or Italian parsley",
+          "quantity": "1 bunch",
+          "forRecipes": [
+            "Chardonnay Chicken"
+          ]
+        },
+        {
+          "item": "Red onion",
+          "quantity": "2",
+          "forRecipes": [
+            "Steak Tacos with Pineapple Salsa"
+          ]
+        },
+        {
+          "item": "Jalape\u00f1o",
+          "quantity": "1",
+          "forRecipes": [
+            "Steak Tacos with Pineapple Salsa"
+          ]
+        },
+        {
+          "item": "Tomato",
+          "quantity": "1",
+          "forRecipes": [
+            "Steak Tacos with Pineapple Salsa"
+          ]
+        },
+        {
+          "item": "Flour tortillas",
+          "quantity": "1 package (6 ct)",
+          "forRecipes": [
+            "Steak Tacos with Pineapple Salsa"
+          ]
+        },
+        {
+          "item": "Mexican spice blend",
+          "quantity": "1 tbsp",
+          "forRecipes": [
+            "Steak Tacos with Pineapple Salsa"
+          ]
+        },
+        {
+          "item": "Pineapple (canned or fresh)",
+          "quantity": "4 oz",
+          "forRecipes": [
+            "Steak Tacos with Pineapple Salsa"
+          ]
+        },
+        {
+          "item": "Sour cream",
+          "quantity": "3 tbsp",
+          "forRecipes": [
+            "Steak Tacos with Pineapple Salsa"
+          ]
+        },
+        {
+          "item": "Mirin",
+          "quantity": "2 tbsp",
+          "forRecipes": [
+            "Easy Beef Bulgogi"
+          ]
+        },
+        {
+          "item": "Rice vinegar",
+          "quantity": "1 tbsp",
+          "forRecipes": [
+            "Chicken Pad Thai"
+          ]
+        },
+        {
+          "item": "Coconut sugar or honey",
+          "quantity": "2 tbsp",
+          "forRecipes": [
+            "Chicken Pad Thai"
+          ]
+        },
+        {
+          "item": "Butter",
+          "quantity": "4 tbsp",
+          "forRecipes": [
+            "Chardonnay Chicken"
+          ]
+        }
+      ],
+      "notes": "Strong ingredient overlap across Asian recipes (soy sauce, sesame oil, garlic, ginger, green onions). Chicken is shared across two recipes. All proteins vary (beef, chicken, pork x2, beef). Cuisines include Asian (3 recipes), Italian (1), Mexican (1) for good variety. All recipes are under 45 minutes active time. Weekend left open for eating out."
     }
   ]
 }
